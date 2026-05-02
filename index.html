@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Banana Delivery App 🍌</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🍌</span>
+        <div class="logo-text">
+          <h1>Banana Delivery</h1>
+          <p>App — Gérez vos commandes</p>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span>Scrum Demo</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="sprint-banner">
+      <span class="sprint-label">🏃 Sprint en cours :</span>
+      <strong>Sprint 1</strong> — Gestion des commandes de bananes
+    </div>
+
+    <section class="card form-card">
+      <div class="card-title">
+        <span class="card-icon">➕</span>
+        Nouvelle commande
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="client-name">Nom du client</label>
+          <input type="text" id="client-name" placeholder="Ex : Timi le singe" />
+        </div>
+
+        <div class="form-group">
+          <label for="product">Produit</label>
+          <select id="product">
+            <option value="">-- Choisir un produit --</option>
+            <option value="Banane Jaune">🍌 Banane Jaune</option>
+            <option value="Banane Plantain">🍌 Banane Plantain</option>
+            <option value="Banane Bio">🌿 Banane Bio</option>
+            <option value="Banane Séchée">✨ Banane Séchée</option>
+            <option value="Jus de Banane">🥤 Jus de Banane</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantité (kg)</label>
+          <input type="number" id="quantity" placeholder="Ex : 5" min="1" />
+        </div>
+
+        <div class="form-group">
+          <label for="price">Prix unitaire (Ar/kg)</label>
+          <input type="number" id="price" placeholder="Ex : 2000" min="1" />
+        </div>
+      </div>
+
+      <button class="btn-add" id="btn-add" onclick="addOrder()">
+        <span>🍌</span> Ajouter la commande
+      </button>
+
+      <div class="error-msg" id="error-msg"></div>
+    </section>
+
+    <section class="stats-row">
+      <div class="stat-card stat-total">
+        <div class="stat-number" id="stat-total">0</div>
+        <div class="stat-label">Total commandes</div>
+      </div>
+      <div class="stat-card stat-encours">
+        <div class="stat-number" id="stat-encours">0</div>
+        <div class="stat-label">En cours</div>
+      </div>
+      <div class="stat-card stat-livre">
+        <div class="stat-number" id="stat-livre">0</div>
+        <div class="stat-label">Livrées</div>
+      </div>
+      <div class="stat-card stat-revenue">
+        <div class="stat-number" id="stat-revenue">0 Ar</div>
+        <div class="stat-label">Chiffre d'affaires</div>
+      </div>
+    </section>
+
+    <div class="filters">
+      <span class="filter-label">Filtrer :</span>
+      <button class="filter-btn active" onclick="filterOrders('all', this)">Toutes</button>
+      <button class="filter-btn" onclick="filterOrders('En cours', this)">En cours</button>
+      <button class="filter-btn" onclick="filterOrders('Livré', this)">Livrées</button>
+    </div>
+
+    <section class="card orders-card">
+      <div class="card-title">
+        <span class="card-icon">📦</span>
+        Liste des commandes
+        <span class="orders-count" id="orders-count">0 commande(s)</span>
+      </div>
+
+      <div class="orders-list" id="orders-list">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon">🍌</div>
+          <p>Aucune commande pour le moment.</p>
+          <p>Ajoutez votre première commande ci-dessus !</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrum-section">
+      <h2 class="section-title">🧩 Tableau Scrum</h2>
+
+      <div class="scrum-grid">
+
+        <div class="scrum-col">
+          <div class="scrum-col-header backlog-header">📋 Product Backlog</div>
+          <div class="scrum-col-body">
+            <div class="backlog-item done">✅ Ajouter une commande</div>
+            <div class="backlog-item done">✅ Voir la liste des commandes</div>
+            <div class="backlog-item done">✅ Changer le statut</div>
+            <div class="backlog-item done">✅ Calculer le total</div>
+            <div class="backlog-item done">✅ Filtrer les commandes</div>
+            <div class="backlog-item done">✅ Supprimer une commande</div>
+            <div class="backlog-item pending">🕐 Historique des livraisons</div>
+            <div class="backlog-item pending">🕐 Notifications</div>
+            <div class="backlog-item pending">🕐 Export PDF</div>
+          </div>
+        </div>
+
+        <div class="scrum-col">
+          <div class="scrum-col-header sprint1-header">🏃 Sprint 1 — Terminé</div>
+          <div class="scrum-col-body">
+            <div class="sprint-item completed">✅ Ajouter une commande</div>
+            <div class="sprint-item completed">✅ Voir la liste</div>
+            <div class="sprint-item completed">✅ Supprimer une commande</div>
+          </div>
+        </div>
+
+        <div class="scrum-col">
+          <div class="scrum-col-header sprint2-header">🔥 Sprint 2 — En cours</div>
+          <div class="scrum-col-body">
+            <div class="sprint-item in-progress">⏳ Changer le statut</div>
+            <div class="sprint-item in-progress">⏳ Calculer le total</div>
+            <div class="sprint-item in-progress">⏳ Filtrer les commandes</div>
+          </div>
+        </div>
+
+        <div class="scrum-col">
+          <div class="scrum-col-header daily-header">☀️ Daily Scrum</div>
+          <div class="scrum-col-body daily-body">
+            <div class="daily-item">
+              <div class="daily-avatar">🐒</div>
+              <div class="daily-text">
+                <strong>Timi</strong> — J'ai codé le formulaire d'ajout.
+              </div>
+            </div>
+            <div class="daily-item">
+              <div class="daily-avatar">🐵</div>
+              <div class="daily-text">
+                <strong>Koko</strong> — Je vais faire le filtre des statuts.
+              </div>
+            </div>
+            <div class="daily-item">
+              <div class="daily-avatar">🦍</div>
+              <div class="daily-text">
+                <strong>Bobo</strong> — Bloqué sur le calcul total. Besoin d'aide.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== RÉTROSPECTIVE ÉDITABLE EN LIVE ===== -->
+    <section class="card retro-card">
+      <div class="card-title">
+        <span class="card-icon">🔁</span>
+        Rétrospective — Sprint 1
+      </div>
+      <div class="retro-grid">
+
+        <div class="retro-col retro-good">
+          <div class="retro-col-title">👍 Ce qui a bien marché</div>
+          <ul class="retro-list" id="retro-good-list"></ul>
+          <div class="retro-input-row">
+            <input type="text" class="retro-input" id="retro-good-input" placeholder="Écrire et appuyer sur Entrée..." />
+            <button class="retro-add-btn" onclick="addRetroItem('good')">+</button>
+          </div>
+        </div>
+
+        <div class="retro-col retro-bad">
+          <div class="retro-col-title">⚠️ À améliorer</div>
+          <ul class="retro-list" id="retro-bad-list"></ul>
+          <div class="retro-input-row">
+            <input type="text" class="retro-input" id="retro-bad-input" placeholder="Écrire et appuyer sur Entrée..." />
+            <button class="retro-add-btn" onclick="addRetroItem('bad')">+</button>
+          </div>
+        </div>
+
+        <div class="retro-col retro-action">
+          <div class="retro-col-title">🎯 Actions pour Sprint 2</div>
+          <ul class="retro-list" id="retro-action-list"></ul>
+          <div class="retro-input-row">
+            <input type="text" class="retro-input" id="retro-action-input" placeholder="Écrire et appuyer sur Entrée..." />
+            <button class="retro-add-btn" onclick="addRetroItem('action')">+</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>🍌 <strong>Banana Delivery App</strong> — Démo Agile Scrum &nbsp;|&nbsp; Présentation Pédagogique</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
