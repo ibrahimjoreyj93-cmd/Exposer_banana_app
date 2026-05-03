@@ -127,28 +127,11 @@ body {
   gap: 24px;
 }
 
-/* ===== SPRINT BANNER ===== */
-.sprint-banner {
-  background: var(--yellow-200);
-  border: 2px dashed var(--yellow-400);
-  border-radius: var(--radius);
-  padding: 12px 22px;
-  font-size: 0.95rem;
-  color: var(--gray-800);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.sprint-label {
-  font-weight: 600;
-}
 
 /* ===== CARDS ===== */
 .card {
   background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 28px;
+  border-radius: var(--radius-lg);  padding: 28px;
   box-shadow: var(--shadow-md);
   border: 1.5px solid var(--yellow-200);
 }
