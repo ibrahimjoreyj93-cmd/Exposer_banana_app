@@ -25,7 +25,13 @@
   </header>
 
   <main class="main">
-	<section class="card form-card">
+
+    <div class="sprint-banner">
+      <span class="sprint-label">🏃 Sprint en cours :</span>
+      <strong>Sprint 1</strong> — Gestion des commandes de bananes
+    </div>
+
+    <section class="card form-card">
       <div class="card-title">
         <span class="card-icon">➕</span>
         Nouvelle commande
@@ -44,53 +50,30 @@
             <option value="Banane Jaune">🍌 Banane Jaune</option>
             <option value="Banane Plantain">🍌 Banane Plantain</option>
             <option value="Banane Bio">🌿 Banane Bio</option>
-            <option value="Banane Séchée">✨ Banane Séchée</option>
-            <option value="Jus de Banane">🥤 Jus de Banane</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="quantity">Quantité (kg)</label>
-          <input type="number" id="quantity" placeholder="Ex : 5" min="1" />
-        </div>
-
-        <div class="form-group">
-          <label for="price">Prix unitaire (Ar/kg)</label>
-          <input type="number" id="price" placeholder="Ex : 2000" min="1" />
-        </div>
-      </div>
-
-      <button class="btn-add" id="btn-add" onclick="addOrder()">
-        <span>🍌</span> Ajouter la commande
-      </button>
-
-      <div class="error-msg" id="error-msg"></div>
-    </section>
-
-    <section class="stats-row">
-      <div class="stat-card stat-total">
-        <div class="stat-number" id="stat-total">0</div>
-        <div class="stat-label">Total commandes</div>
-      </div>
-      <div class="stat-card stat-encours">
-        <div class="stat-number" id="stat-encours">0</div>
-        <div class="stat-label">En cours</div>
-      </div>
-      <div class="stat-card stat-livre">
         <div class="stat-number" id="stat-livre">0</div>
+
         <div class="stat-label">Livrées</div>
+
       </div>
+
       <div class="stat-card stat-revenue">
+
         <div class="stat-number" id="stat-revenue">0 Ar</div>
+
         <div class="stat-label">Chiffre d'affaires</div>
+
       </div>
     </section>
+
 
     <div class="filters">
       <span class="filter-label">Filtrer :</span>
+
       <button class="filter-btn active" onclick="filterOrders('all', this)">Toutes</button>
+
       <button class="filter-btn" onclick="filterOrders('En cours', this)">En cours</button>
       <button class="filter-btn" onclick="filterOrders('Livré', this)">Livrées</button>
+
     </div>
 
     <section class="card orders-card">
@@ -136,25 +119,36 @@
             <div class="sprint-item completed">✅ Voir la liste</div>
             <div class="sprint-item completed">✅ Supprimer une commande</div>
           </div>
+
         </div>
+
 
         <div class="scrum-col">
           <div class="scrum-col-header sprint2-header">🔥 Sprint 2 — En cours</div>
+
           <div class="scrum-col-body">
             <div class="sprint-item in-progress">⏳ Changer le statut</div>
             <div class="sprint-item in-progress">⏳ Calculer le total</div>
+
             <div class="sprint-item in-progress">⏳ Filtrer les commandes</div>
+
           </div>
+
         </div>
+
 
         <div class="scrum-col">
           <div class="scrum-col-header daily-header">☀️ Daily Scrum</div>
+
           <div class="scrum-col-body daily-body">
+
             <div class="daily-item">
+
               <div class="daily-avatar">🐒</div>
               <div class="daily-text">
                 <strong>Timi</strong> — J'ai codé le formulaire d'ajout.
               </div>
+
             </div>
             <div class="daily-item">
               <div class="daily-avatar">🐵</div>
